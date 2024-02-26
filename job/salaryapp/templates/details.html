@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f6;
+            background-image: url("{% static 'salary12.png' %}"); /* Add the path to your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container{
+           padding: 20px;
+           margin-left:  500px;
+           margin-top: 150px;
+           border: 1px solid #ccc;
+           width: 400px;
+           height: 270px;
+           background-color: rgba(255, 255 ,255,0.5);
+        }
+        h1 {
+            color: #4CAF50; 
+            animation: fadeIn 1.5s ease-out; /* Animation properties */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 7;
+            }
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+        }
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #000000de;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+       
+        #logoutBtn {
+            background-color: #f44336;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 4px 2px;
+            display: inline-block;
+            float: right;
+        }
+        #logoutBtn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+    <link href="{% static 'css/salary_style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="form-box">
+        <div class="header-text">
+           Salary Prediction
+        </div>
+        
+        <!-- Add your form fields for the salary prediction -->
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="predict-button">Predict</button>
+        </form>
+
+        <!-- Add any additional content or styling specific to the salary prediction page -->
+        
+    </div>
+</body>
+</html>
